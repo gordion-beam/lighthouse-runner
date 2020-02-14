@@ -9,8 +9,8 @@ app.get('/', async (req, res) => {
   const startTime = moment();
   console.log(5);
   const result = await helloworld();
-  console.log((moment().diff(startTime) / 1000))
-  res.send(result);
+  const time = moment().diff(startTime) / 1000;
+  res.json({ time });
 })
 
 app.listen(port, () => console.log(`Examplessss app listening on port ${port}!`))
