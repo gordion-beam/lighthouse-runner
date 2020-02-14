@@ -1,0 +1,16 @@
+# docker-compose.yml
+version: '3'
+services:
+  pupp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+     - "9000:9000"
+    cap_add:
+      - SYS_ADMIN
+    volumes:
+      - .:/home/chrome/app/
+    command: yarn start
+
+
