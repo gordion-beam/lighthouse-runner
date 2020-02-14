@@ -16,22 +16,10 @@
   "author": "Simo Ahava",
   "license": "MIT",
   "dependencies": {
-    "@google-cloud/bigquery": "^2.0.6",
-    "@google-cloud/pubsub": "^0.22.2",
-    "@google-cloud/storage": "^2.3.4",
-    "express": "^4.17.1",
-    "jsonschema": "^1.2.4",
-    "lighthouse": "^4.0.0",
-    "moment": "^2.24.0",
-    "proxyquire": "^2.1.0",
-    "puppeteer": "1.11.0",
-    "uuid": "^3.3.2"
+    "express": "^4.17.1"
+
   },
   "devDependencies": {
-    "@google-cloud/nodejs-repo-tools": "^3.1.0",
-    "ava": "^0.25.0",
-    "nodemon": "^2.0.2",
-    "nyc": "^13.1.0",
-    "sinon": "^7.2.3"
+    "nodemon": "^2.0.2"
   }
 }

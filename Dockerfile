@@ -1,65 +1,33 @@
-# Run Lighthouse w/ Chrome Headless in a container
-#
-# Lighthouse is a tool that allows auditing, performance metrics, and best
-# practices for Progressive Web Apps.
-#
-# What's New
-#
-# 1. Allows cache busting so you always get the latest lighthouse.
-# 1. Pulls from Chrome M59+ for headless support.
-# 2. You can now use the ever-awesome Jessie Frazelle seccomp profile for Chrome.
-#     wget https://raw.githubusercontent.com/jfrazelle/dotfiles/master/etc/docker/seccomp/chrome.json -O ~/chrome.json
-#
-#
-# To run (without seccomp):
-# docker run -it ~/your-local-dir:/opt/reports --net host justinribeiro/lighthouse
-#
-# To run (with seccomp):
-# docker run -it ~/your-local-dir:/opt/reports --security-opt seccomp=$HOME/chrome.json --net host justinribeiro/lighthouse
-#
+FROM alpine:edge
 
-FROM debian:buster-slim
-LABEL name="lighthouse" \
-  maintainer="Justin Ribeiro <justin@justinribeiro.com>" \
-  version="3.0" \
-  description="Lighthouse analyzes web apps and web pages, collecting modern performance metrics and insights on developer best practices."
+# Installs latest Chromium (77) package.
+RUN apk add --no-cache \
+      chromium \
+      nss \
+      freetype \
+      freetype-dev \
+      harfbuzz \
+      ca-certificates \
+      ttf-freefont \
+      nodejs \
+      bash \
+      yarn
 
-# Install deps + add Chrome Stable + purge all the things
-RUN apt-get update && apt-get install -y \
-  apt-transport-https \
-  ca-certificates \
-  curl \
-  gnupg \
-  --no-install-recommends \
-  && curl -sSL https://deb.nodesource.com/setup_12.x | bash - \
-  && curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
-  && echo "deb https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list \
-  && apt-get update && apt-get install -y \
-  google-chrome-stable \
-  fontconfig \
-  fonts-ipafont-gothic \
-  fonts-wqy-zenhei \
-  fonts-thai-tlwg \
-  fonts-kacst \
-  fonts-symbola \
-  fonts-noto \
-  fonts-freefont-ttf \
-  nodejs \
-  --no-install-recommends \
-  && apt-get purge --auto-remove -y curl gnupg \
-  && rm -rf /var/lib/apt/lists/*
+# Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
-ARG CACHEBUST=1
-RUN npm install -g lighthouse
-RUN npm install -g yarn
+# Puppeteer v1.19.0 works with Chromium 77.
+RUN yarn add puppeteer@1.19.0
 
-# Add Chrome as a user
-RUN groupadd -r chrome && useradd -r -g chrome -G audio,video chrome \
-  && mkdir -p /home/chrome/reports && chown -R chrome:chrome /home/chrome && mkdir -p /home/chrome/app && chown -R chrome:chrome /home/chrome/app
+# Add user so we don't need --no-sandbox.
+RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
+    && mkdir -p /home/pptruser/Downloads /app \
+    && chown -R pptruser:pptruser /home/pptruser \
+    && chown -R pptruser:pptruser /app
 
-WORKDIR /home/chrome/app
+# Run everything after as non-privileged user.
+USER pptruser
+WORKDIR /app
 COPY package*.json ./
 RUN yarn
-# Run Chrome non-privileged
-USER chrome
-EXPOSE 8080
+COPY . .

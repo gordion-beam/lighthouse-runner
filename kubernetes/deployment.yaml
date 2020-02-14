@@ -13,4 +13,4 @@ spec:
     spec:
       containers:
         - name: node-skeleton
-          image: gcr.io/gordion-2/github.com/gordion-beam/lighthouse-function@sha256:9846e1a2c3a96562bb201bc3ecbb6c8ac474155c8fabf760fa0938c2e375c42b
+          image: gcr.io/gordion-2/lighthouse-runner:5bf88fb36a5a48edd5af18a0f0a10aeae7b7fbed
