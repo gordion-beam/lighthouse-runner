@@ -1,12 +1,17 @@
-import { getBrowser } from './services/Browser';
+import { getBrowser } from "./services/Browser";
+import lighthouse from "lighthouse";
+import { parseScores } from "./services/LightHouse";
 
 async function helloWorld(site) {
   const browser = await getBrowser();
-  const page = await browser.newPage();
-  await page.goto(site);
-  const firstPar = await page.$eval('title', el => el.innerText);
+  const { lhr } = await lighthouse(site, {
+    port: new URL(browser.wsEndpoint()).port,
+    output: "json",
+    logLevel: "info"
+  });
+
   await browser.close();
-  return firstPar;
+  return parseScores(lhr.categories);
 }
 
 export default helloWorld;

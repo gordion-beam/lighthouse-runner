@@ -8,9 +8,9 @@ const port = 9000;
 app.use(bodyParser.json());
 app.post('/', async (req: Request, res: Response) => {
   const startTime = moment();
-  const title = await helloworld(req.body.site);
+  const scores = await helloworld(req.body.site);
   const time = moment().diff(startTime) / 1000;
-  res.json({ time, title });
+  res.json({ time, scores });
 });
 
 app.listen(port, () =>
