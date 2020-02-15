@@ -1,9 +1,7 @@
-import puppeteer from 'puppeteer';
+import { getBrowser } from './services/Browser';
 
 async function helloWorld(site) {
-  const browser = await puppeteer.launch({
-    executablePath: '/usr/bin/chromium-browser'
-  });
+  const browser = await getBrowser();
   const page = await browser.newPage();
   await page.goto(site);
   const firstPar = await page.$eval('title', el => el.innerText);
