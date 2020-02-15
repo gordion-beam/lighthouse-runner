@@ -13,5 +13,8 @@ services:
     volumes:
       - .:/app
     command: yarn start
+    environment:
+      - NODE_ENV=docker
+
 
 

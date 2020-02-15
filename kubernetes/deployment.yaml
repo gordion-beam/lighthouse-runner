@@ -14,7 +14,7 @@ spec:
       containers:
         - name: node-skeleton
           command: ["yarn", "prod"]
-          image: gcr.io/gordion-2/lighthouse-runner:0138cbd77f994357a887766715ed7f0fc1107b61
+          image: gcr.io/gordion-2/lighthouse-runner:3e4314f9a16b4a855099b134e35df81110f2fa3b
           securityContext:
             capabilities:
               add:
