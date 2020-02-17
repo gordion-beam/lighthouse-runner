@@ -1,21 +1,35 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: node-skeleton
+  name: lighthouse-runner
   labels:
-    app: node-skeleton
+    app: lighthouse-runner
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: node-skeleton
+        app: lighthouse-runner
     spec:
       containers:
-        - name: node-skeleton
+        - name: lighthouse-runner
           command: ["yarn", "prod"]
           image: gcr.io/gordion-2/lighthouse-runner:3e4314f9a16b4a855099b134e35df81110f2fa3b
           securityContext:
             capabilities:
               add:
                 - SYS_ADMIN
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lighthouse-runner
+spec:
+  type: LoadBalancer
+  selector:
+    app: lighthouse-runner
+  ports:
+    - protocol: TCP
+      port: 9000
+      targetPort: 9000
