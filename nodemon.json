@@ -3,6 +3,6 @@
   "ignore": ["src/**/*.spec.ts"],
   "watch": ["src/**/*.ts"],
   "execMap": {
-    "ts": "node --inspect=0.0.0.0:9229 --nolazy -r ts-node/register -r dotenv/config"
+    "ts": "NODE_ENV=local && node -r ts-node/register -r dotenv/config --inspect=0.0.0.0:9229 --nolazy"
   }
 }

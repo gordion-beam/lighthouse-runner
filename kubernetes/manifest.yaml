@@ -14,7 +14,7 @@ spec:
       containers:
         - name: lighthouse-runner
           command: ["yarn", "prod"]
-          image: gcr.io/gordion-2/lighthouse-runner:3e4314f9a16b4a855099b134e35df81110f2fa3b
+          image: gcr.io/gordion-project/lighthouse-runner:0585711b525649a49f7d0abaafd698be6810cdd2
           securityContext:
             capabilities:
               add:

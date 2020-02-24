@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "gordion-project",
+  "private_key_id": "ab7a709bcf69a7e3ad8e7f9a3e506835d5937d22",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC/yzOMrRKMYVaO\naq4NV8YgsXJSJVdjo0bVc7oE+rgwO4SGmyP4++emAESNzywh87lqfMbtY9KocXSb\niyQV/az3pIYk0twiBtxsh74g+kY6nIsydLPLqOuzbGpbCvsqe+Kzbqs7lx7A34CJ\nqLvnFXftihDpEq8gb9oBl+JGkx+8q9RIoYiWTcKWRCtFUhMLy3udYrFtYpKcxfqh\nI/em0v3l+bE82lLC9+qeiD4P1lFbYw6x0Kt28/NyG6EhS0/CqZqskI3zX3QBeJ4Q\n5oUolWLXSR0miihY3dFajmTBe2UL8kd4s+QqT16Ajl1b8z10uzNA8+Vs33Czs3Ay\ng7HSLH/bAgMBAAECggEAJN6UwdHRk3/wyj7yx6jccxN5lRYNlx9fsg/lriheeRMv\n9kpjn20Zin1ZsGMnqj02oyRqf18ls3DgCDi2zq1t70tG6FRKshXckNaFc8R49LJ8\nRc5Oc/O8n8jTJz5Uq0WWfoTjUPjLlitBA/WWbaVgYR8eAhgv503pPE4s1wFYZAXU\n+YbvZGXjETqGFYN8fj0K0q60+RcRUup916JkdX9TsXiEVjHXOBL9aDWikH5MNhkL\n0hsGSMUj3MeomL8WfBXJD+HAbk3mRNyVNN8k/JNxsNZ5enGTapl+U6iaVjOcx/7t\nxhUXqga7Xuif1NCB2mpcHTf6SyCJxfbdQDmxtdjlYQKBgQDity2eqLyL28qIbeNp\nDPsr9B1BYwbKWGtuFhF09X7KKJbHdk0sGmr0lCZWFmLdK8nkwrkcsZ6h/FFNGMOl\n+E8lMblqOuK346KCrWq3I/6RU/ssw5vrW9BqEGtPwmXBlTOn1U221DKm5mGflp4s\nhh/YgQ2aeGvpbBLBailaVVLFuwKBgQDYkUL2/0ABjyGIbMgu4f/ZKUku+vcjwfHI\n3DmicdqdPqWjLhZ0RZvgUyBzQ7utPHIE6w/JnxKN9tTQ2aC+UfZ2N9bhEf/wVVU8\npzZ56NLMGiKzuR3E72EAPpD41kiCe4P5lYDH7XeHYVxI8WOaAvPwOzBG+FX3DJsU\nivKExQt8YQKBgQCEjGwTkruJWVs0IGsQhBJlRDfGfsr9imxk1GooY09Zihl9TGEa\nI+fcTrGLK1Np06waHu5zJDWGpyoxVQUuB9rd+BBbV0ouENx2YkU+BcFT3jG/ni2O\nkQNsv2S+IP21DDJDMaZZ+f4TLiZtU3XuugvsXKdDZJxSwGjGw/ahZbka+QKBgQC+\nt13TioFhXhzXuYSo1Nms8lDCkLxnvvogOuB+j+lHpM3VYFbh2hMlf88J8tIqAxsd\n/auPkQiUAJT1v1FxiViUTyRqXKGZkmxX16F/xmss1q9Mum7e6TfxMSgWGw8L6Z4V\ng3U/m34xuKm+iuV90a/lFRq0xSlfQLipZJuiFKzCwQKBgFLWR3Mr86ZVJuGQ1xVH\nbmPkSmtkaBcXqJf282CYUfRR/ag+/Jnjvr8rZIjDLoMJ1/vFz9EfPrVVQPPn94/3\nA9NdNsV4Q84aV3jirRNDoNIA98Ikb1XhdoSty/W0ZtHdq48A2qUDPQIUY78JO9S6\nFuzGKWyXZYTQsoBkTqIHVOwU\n-----END PRIVATE KEY-----\n",
+  "client_email": "lighthouse-publisher@gordion-project.iam.gserviceaccount.com",
+  "client_id": "102558367413189243388",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/lighthouse-publisher%40gordion-project.iam.gserviceaccount.com"
+}
