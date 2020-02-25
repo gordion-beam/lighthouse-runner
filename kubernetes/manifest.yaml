@@ -11,14 +11,31 @@ spec:
       labels:
         app: lighthouse-runner
     spec:
+      volumes:
+        - name: google-cloud-key
+          secret:
+            secretName: lighthouse-runner-pubsub
       containers:
         - name: lighthouse-runner
           command: ["yarn", "prod"]
-          image: gcr.io/gordion-project/lighthouse-runner:0585711b525649a49f7d0abaafd698be6810cdd2
+          image: gcr.io/gordion-project/lighthouse-runner:8492d4ad4b9b88a06c213a23f286dc354d98f387
+          resources:
+            requests:
+              cpu: 200m
+              memory: 3000Mi
+            limits:
+              cpu: 6000m
+              memory: 6000Mi
           securityContext:
             capabilities:
               add:
                 - SYS_ADMIN
+          volumeMounts:
+            - name: lighthouse-runner-pubsub
+              mountPath: "/var/secrets/google"
+          env:
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: "/var/secrets/google/key.json"
 
 ---
 apiVersion: v1
