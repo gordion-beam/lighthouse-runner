@@ -22,20 +22,20 @@ spec:
           resources:
             requests:
               cpu: 200m
-              memory: 3000Mi
+              memory: 300Mi
             limits:
-              cpu: 6000m
-              memory: 6000Mi
+              cpu: 600m
+              memory: 600Mi
           securityContext:
             capabilities:
               add:
                 - SYS_ADMIN
           volumeMounts:
             - name: google-cloud-key
-              mountPath: "/var/secrets/google"
+              mountPath: "/var/secrets/google/"
           env:
             - name: GOOGLE_APPLICATION_CREDENTIALS
-              value: "/var/secrets/google/key.json"
+              value: "/var/secrets/google/lighthouse-publisher-keys.json"
 
 ---
 apiVersion: v1
