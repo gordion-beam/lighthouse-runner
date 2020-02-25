@@ -31,7 +31,7 @@ spec:
               add:
                 - SYS_ADMIN
           volumeMounts:
-            - name: lighthouse-runner-pubsub
+            - name: google-cloud-key
               mountPath: "/var/secrets/google"
           env:
             - name: GOOGLE_APPLICATION_CREDENTIALS
