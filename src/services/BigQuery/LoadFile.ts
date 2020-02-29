@@ -1,5 +1,5 @@
 import config from "../../config";
-const bqSchema = require("./bigQuery-schema.json");
+import bqSchema from "./bigQuery-schema.json";
 
 const { BigQuery } = require(`@google-cloud/bigquery`);
 const bigquery = new BigQuery({
