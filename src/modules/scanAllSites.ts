@@ -1,6 +1,6 @@
 import { getBrowser } from "../services/Browser";
 import lighthouse from "lighthouse";
-import { lhrToJson } from "../services/LigHtHouse";
+import { lhrToJson } from "../services/Lighthouse";
 import { LoadFile } from "../services/BigQuery";
 import { sites } from "../config";
 import { v1 as uuidv1 } from "uuid";
