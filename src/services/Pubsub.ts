@@ -17,6 +17,7 @@ export async function listenForMessages(cb: () => any) {
   console.log("start listen ..");
   const subscription = pubSubClient.subscription(config.subscriptionName);
   subscription.on("message", message => {
+    console.log("Got message");
     messageHandler(message);
     cb();
   });
