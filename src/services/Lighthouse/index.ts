@@ -1,1 +1,1 @@
-export {default as lhrToJson} from './lhrToJson'
+export { default as runLighthouse } from "./runLighthouse";

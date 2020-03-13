@@ -6,16 +6,24 @@ const bigquery = new BigQuery({
   projectId: config.projectId
 });
 
-const loadFile = async (uuid: string) => {
+interface LoadFile {
+  fileId: string;
+  siteName: string;
+}
+
+const loadFile = async (props: LoadFile) => {
+  console.log(`BigQuery job starting for ${props.siteName}`);
   const metadata = {
     sourceFormat: "NEWLINE_DELIMITED_JSON",
     schema: { fields: bqSchema },
-    jobId: uuid
+    jobId: props.fileId
   };
-  return bigquery
+  const result = await bigquery
     .dataset(config.datasetId)
     .table(config.tableName)
-    .load(`/tmp/${uuid}.json`, metadata);
+    .load(`/tmp/${props.fileId}.json`, metadata);
+  console.log(`BigQuery job with ID ${props.fileId} finished.`);
+  return result;
 };
 
 export default loadFile;

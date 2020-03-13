@@ -18,7 +18,7 @@ spec:
       containers:
         - name: lighthouse-runner
           command: ["yarn", "prod"]
-          image: gcr.io/gordion-project/lighthouse-runner:8492d4ad4b9b88a06c213a23f286dc354d98f387
+          image: gcr.io/gordion-project/lighthouse-runner:edb14b9158ff493926762c8478c073cfb0990398
           resources:
             requests:
               cpu: 200m
