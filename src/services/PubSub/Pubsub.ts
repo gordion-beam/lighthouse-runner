@@ -1,11 +1,10 @@
 import { PubSub } from "@google-cloud/pubsub";
+import acknowledge from "./Acknowledge";
 import config from "../../config";
 
 const pubSubClient = new PubSub({
   projectId: config.projectId
 });
-
-
 
 export async function listenForMessages(cb: () => any) {
   console.log("start listen ..");
@@ -13,6 +12,6 @@ export async function listenForMessages(cb: () => any) {
   subscription.on("message", message => {
     console.log("Got message");
     cb();
-    messageHandler(message);
+    acknowledge(message);
   });
 }
