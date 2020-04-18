@@ -13,4 +13,4 @@ export default {
     output: "json"
   }
 };
-export { default as sites } from "./sites";
+export { default as sites } from "./config/sites";

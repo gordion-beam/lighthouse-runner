@@ -1,7 +1,7 @@
 import lighthouse from "lighthouse";
 import getBrowser from "./getBrowser";
 import convertLighthouseResultToJson from "./convertLighthouseResultToJson";
-import config from "../../config/index";
+import config from "../../config";
 interface RunLighthouse {
   siteUrl: string;
 }
