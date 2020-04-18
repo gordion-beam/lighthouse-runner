@@ -9,9 +9,9 @@ const pubSubClient = new PubSub({
 export async function listenForMessages(cb: () => any) {
   console.log("start listen ..");
   const subscription = pubSubClient.subscription(config.subscriptionName);
-  subscription.on("message", message => {
+  subscription.on("message", async message => {
     console.log("Got message");
-    cb();
+    await cb();
     acknowledge(message);
   });
 }
