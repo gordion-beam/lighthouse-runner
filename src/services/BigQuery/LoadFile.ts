@@ -3,7 +3,7 @@ import bqSchema from "./bigQuery-schema.json";
 
 const { BigQuery } = require(`@google-cloud/bigquery`);
 const bigquery = new BigQuery({
-  projectId: config.projectId
+  projectId: config.projectId,
 });
 
 interface LoadFile {
@@ -16,11 +16,11 @@ const loadFile = async (props: LoadFile) => {
   const metadata = {
     sourceFormat: "NEWLINE_DELIMITED_JSON",
     schema: { fields: bqSchema },
-    jobId: props.fileId
+    jobId: props.fileId,
   };
   const result = await bigquery
-    .dataset(config.datasetId)
-    .table(config.tableName)
+    .dataset(config.bigquery.datasetId)
+    .table(config.bigquery.tableName)
     .load(`/tmp/${props.fileId}.json`, metadata);
   console.log(`BigQuery job with ID ${props.fileId} finished.`);
   return result;
