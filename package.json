@@ -4,8 +4,9 @@
   "description": "Run Lighthouse audits on URLs, and write the results daily into a BigQuery table.",
   "main": "index.js",
   "scripts": {
-    "prod": "tsc && node build/server.js",
-    "dev": "nodemon src/server.ts"
+    "prod": "yarn build && node build/server.js",
+    "dev": "nodemon src/server.ts",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
