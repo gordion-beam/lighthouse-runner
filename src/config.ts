@@ -1,3 +1,5 @@
+import sitesList from "./assets/sitesList";
+
 export default {
   projectId: "gordion-project",
   datasetId: "lighthouse_runs",
@@ -11,6 +13,6 @@ export default {
     categories: "pwa",
     logLevel: "info",
     output: "json"
-  }
+  },
+  sitesList
 };
-export { default as sites } from "./config/sites";
