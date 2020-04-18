@@ -6,6 +6,11 @@ export default {
   subscriptionName:
     process.env.NODE_ENV === "local"
       ? "lighthouse-runner-test"
-      : "lighthouse-runner"
+      : "lighthouse-runner",
+  lighthouse: {
+    categories: "pwa",
+    logLevel: "info",
+    output: "json"
+  }
 };
 export { default as sites } from "./sites";
